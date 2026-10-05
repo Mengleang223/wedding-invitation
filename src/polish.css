@@ -1,0 +1,62 @@
+/* Loaded after styles.css (imported from motion.js). Overrides only. */
+html{scroll-behavior:auto}
+html:not(.lenis){scroll-behavior:smooth}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+html.locked{overflow:hidden}
+.site-shell{overflow-x:clip;overflow-y:visible}
+.grain{display:none}                         /* full-screen blend layer made phones lag */
+.topbar.scrolled{backdrop-filter:none}
+.reveal-on-scroll{opacity:1;transform:none;transition:none}   /* GSAP owns reveals now */
+.content-reveal,.reveal-in{animation:none}
+.invitation{transition:none}
+
+/* Photos: no zoom, no overscale */
+.hero-image{transform:none}
+.envelope-backdrop{transform:none;inset:-3%;filter:blur(6px) saturate(.75)}
+.gallery-item:hover img{transform:none;filter:none}
+.fit-contain{object-fit:contain!important;object-position:center!important}
+.bg-blur{position:absolute;inset:-6%;background:center/cover;filter:blur(26px) brightness(.5)}
+.bg-blur[hidden]{display:none}
+.scallop-photo img,.gallery-item img{object-position:center 30%}
+.lightbox{touch-action:pan-y}
+@media (max-width:760px){
+  .lightbox{place-items:start center;align-content:start;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scroll-padding:4rem 0}
+  .lightbox.open{display:grid}
+  .lightbox img{width:100%;height:auto;max-width:none;max-height:none;object-fit:contain;object-position:top center;touch-action:pan-y}
+  .lightbox-close,.lightbox-arrow,.lightbox p{position:fixed}
+}
+
+/* Envelope */
+.envelope-stage{transform:none;animation:none;margin-top:5vh;will-change:transform;cursor:pointer}
+.envelope-back{position:absolute;inset:0;z-index:0;background:linear-gradient(#292c1d,#3a3e29);box-shadow:0 14px 36px rgba(0,0,0,.4)}
+.envelope-card-preview{z-index:2;transform:none;transition:none}
+.envelope-pocket{z-index:3;background:none;box-shadow:none;overflow:visible}
+.envelope-shadow{transition:none}
+.envelope-flap{z-index:4;clip-path:none;background:none;box-shadow:none;transition:none;transform-style:preserve-3d}
+.flap-face{position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 69%);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flap-front{background:#555939 url('/starter-kit/textures/paper-olive.webp') center/320px}
+.flap-back{transform:rotateX(180deg);background:#efe6d4 url('/starter-kit/textures/paper-lining.webp') center/280px}
+.flap-cast{position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 75%);background:rgba(0,0,0,.3)}
+.wax-seal{z-index:6;transform:none;transition:none;--sh:8px;filter:drop-shadow(0 var(--sh) calc(var(--sh)*.9) rgba(0,0,0,.42))}
+.fade-dark{position:absolute;inset:0;z-index:10;background:#0b0a08;opacity:0;pointer-events:none}
+
+/* Countdown, programme, story */
+.marquee{transform:none;top:50%}
+.ritual-icon{transition:background .7s,color .7s,box-shadow .7s}
+.ritual-icon.lit{background:linear-gradient(135deg,#f6e5ae,#c99635);color:#4a3411;border-color:transparent;box-shadow:0 0 0 6px rgba(215,172,82,.15)}
+.story{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.story>:not(.dusk){position:relative;z-index:1}
+.story .section-heading{margin-bottom:2.4rem}
+.story-strip{margin:0;padding:0 8vw;transform:none;will-change:transform}
+.story figure img{aspect-ratio:4/5;object-position:center 28%}
+.dusk{position:absolute;inset:0;z-index:0;opacity:0;pointer-events:none;background:linear-gradient(180deg,rgba(217,163,92,.4),rgba(107,58,90,.8) 55%,#1b1830)}
+
+/* Candlelight */
+.ring{position:absolute;width:60px;height:36px;margin:-18px 0 0 -30px;border:1px solid rgba(246,229,174,.6);border-radius:50%;pointer-events:none;z-index:1}
+.lantern{position:absolute;margin:-30px 0 0 -17px;pointer-events:none;z-index:1;filter:drop-shadow(0 0 8px rgba(255,205,110,.7))}
+
+/* Thank-you candles */
+.candles{display:flex;justify-content:center;align-items:flex-end;gap:clamp(.8rem,3vw,1.6rem);margin:1.6rem 0 .8rem;height:70px}
+.candles .candle{position:relative;width:10px;height:38px;border-radius:2px;background:linear-gradient(90deg,#d8c9a4,#f3ead2,#cdbd96)}
+.candles .candle:nth-child(odd){height:48px}
+.flame{position:absolute;left:50%;bottom:100%;width:10px;height:18px;margin:0 0 3px -5px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(#fff6c8,#ffd36b 55%,transparent 72%);box-shadow:0 0 16px 4px rgba(255,200,90,.45);transform-origin:50% 100%}
